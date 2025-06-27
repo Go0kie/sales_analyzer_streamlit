@@ -14,7 +14,7 @@
 
 ## 🚀 Демо
 
-👉 Попробуй онлайн: [Streamlit Cloud (ссылка будет здесь)](https://share.streamlit.io/Go0kie/sales_analyzer_streamlit/main/app.py)
+👉 Попробуй онлайн: [Streamlit Cloud (https://salesanalyzerapp-nnsflfa7sfdmjbyts9nzbu.streamlit.app/)](https://salesanalyzerapp-nnsflfa7sfdmjbyts9nzbu.streamlit.app/)
 
 ---
 
