@@ -1,10 +1,3 @@
-
-# 📊 Sales Analyzer — интерактивный анализ продаж на Streamlit
-
-![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-ff4b4b?logo=streamlit&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 > Простой инструмент для анализа CSV-данных о продажах с фильтрами, визуализациями и генерацией Excel-отчётов.
 
 ---
@@ -57,7 +50,3 @@ sales_analyzer_streamlit/
 ```
 
 ---
-
-## 📃 Лицензия
-
-Этот проект распространяется под лицензией **MIT**.
