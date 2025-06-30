@@ -11,7 +11,7 @@ from datetime import datetime
 st.set_page_config(page_title="Анализ продаж", layout="wide")
 st.title("📊 Анализ данных о продажах")
 
-# 📁 Генерация тестового CSV-файла
+# Генерация пробного CSV
 @st.cache_data
 def get_sample_csv() -> bytes:
     sample_data = pd.DataFrame({
@@ -20,7 +20,7 @@ def get_sample_csv() -> bytes:
     })
     return sample_data.to_csv(index=False).encode('utf-8')
 
-# 📥 Интерфейс загрузки
+# Загрузка UI
 def upload_interface() -> pd.DataFrame:
     with st.expander("📎 Скачать пример CSV-файла"):
         st.download_button("Скачать sample_sales_data.csv", data=get_sample_csv(), file_name="sample_sales_data.csv", mime="text/csv")
@@ -33,7 +33,7 @@ def upload_interface() -> pd.DataFrame:
         return df
     return pd.DataFrame()
 
-# 📆 Интерфейс выбора даты
+# UI выбора дат
 def filter_by_date(df: pd.DataFrame) -> pd.DataFrame:
     min_date, max_date = df['Дата'].min().date(), df['Дата'].max().date()
     start_date = st.date_input("Начальная дата", min_value=min_date, max_value=max_date, value=min_date)
@@ -47,7 +47,7 @@ def filter_by_date(df: pd.DataFrame) -> pd.DataFrame:
     filtered['Темп прироста (%)'] = filtered['Продажи'].pct_change() * 100
     return filtered
 
-# 📈 Визуализация графика
+# Визуализация графика
 def plot_trend(df: pd.DataFrame):
     st.subheader("📉 График продаж с трендом")
     fig, ax = plt.subplots(figsize=(10, 5))
@@ -60,7 +60,7 @@ def plot_trend(df: pd.DataFrame):
     ax.legend()
     st.pyplot(fig)
 
-# 📊 Показ ключевых метрик
+# Показываем ключевые метрики
 def show_kpis(df: pd.DataFrame):
     st.subheader("📌 Ключевые показатели")
     st.metric("Общая выручка", f"{df['Продажи'].sum():,.0f}")
@@ -68,7 +68,7 @@ def show_kpis(df: pd.DataFrame):
     st.metric("Максимальные продажи", f"{df['Продажи'].max():,.0f}")
     st.metric("Минимальные продажи", f"{df['Продажи'].min():,.0f}")
 
-# 💾 Генерация Excel-отчёта
+# Генерируем Excel-фаил с отчетом 
 def generate_excel(df: pd.DataFrame) -> bytes:
     wb = Workbook()
     ws = wb.active
@@ -93,7 +93,7 @@ def generate_excel(df: pd.DataFrame) -> bytes:
     wb.save(output)
     return output.getvalue()
 
-# 🚀 Основной поток работы
+# Основной поток работы
 def main():
     df = upload_interface()
     if not df.empty:
